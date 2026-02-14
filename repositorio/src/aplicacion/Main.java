@@ -1,25 +1,36 @@
 package aplicacion;
 
-public class main {
-    public static void Main(String[] arge) {
-        System.out.println("hello work");
-        String name;
-        String lastName;
+import java.util.ArrayList;
+import java.util.List;
 
-        name = "daniel";
-        lastName = "herrera";
-        int year = Integer.parseInt("24");
-        boolean male = false;
+public class Main {
+    final static int CURRENT_YEAR = 2026;
 
-        System.out.println("My name is "+ name + lastName);
-        System.out.println("I am " + year + "year old");
-        System.out.println("I am male?" + male);
+    public static void main(String[] args) {
+        final String GREETING_MESSAGE = "saludo estudiante de java";
 
-        for (int i = 1; 1 <= 10; i++) {
-            System.out.println("Interration; " + 1);
+        String[] namesStudents = {"Emanuel", "Matius", "Ronaldo", "Messi", "Carlos"};
+        int[] birthYears = {2000, 2001, 2007, 2009, 1995};
+
+
+        List<Integer> agesStudents = new ArrayList<>();
+
+        showMessage(GREETING_MESSAGE);
+
+
+        for (int i = 0; i < birthYears.length; i++) {
+            int age = calculateAge(birthYears[i]);
+            agesStudents.add(age);
+            System.out.println(namesStudents[i] + " tiene " + age + " años.");
         }
-
     }
 
 
+    static void showMessage(String message) {
+        System.out.println(message);
+    }
+
+    static int calculateAge(int birthYear) {
+        return CURRENT_YEAR - birthYear;
+    }
 }
